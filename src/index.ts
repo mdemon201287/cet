@@ -20,7 +20,13 @@ app.use('/uploads', express.static('uploads'));
 app.use('/api/agencies', agencyRoutes);
 app.use('/api/categories', categoryRoutes);
 
+app.get('/', (req, res) => {
+    res.send('Hello World');
+  });
+
 // Connect to MongoDB
 mongoose.connect(MONGO_URI)
     .then(() => app.listen(PORT, () => console.log(`Server running on port ${PORT}`)))
     .catch((error) => console.error('Error connecting to MongoDB:', error));
+
+

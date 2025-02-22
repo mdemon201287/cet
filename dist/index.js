@@ -20,6 +20,9 @@ app.use('/uploads', express_1.default.static('uploads'));
 // Define your routes
 app.use('/api/agencies', agencies_1.default);
 app.use('/api/categories', categories_1.default);
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
 // Connect to MongoDB
 mongoose_1.default.connect(MONGO_URI)
     .then(() => app.listen(PORT, () => console.log(`Server running on port ${PORT}`)))
